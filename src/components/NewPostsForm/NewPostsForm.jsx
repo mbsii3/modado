@@ -25,7 +25,7 @@ export default function NewPostsForm({posts, setPosts, user}) {
     return (
         <>
             <form action="" onSubmit={handleSubmit} >
-                <label htmlFor="content">Content:
+                <label htmlFor="content">
                     <input type="text" name="content" id="content" value={newPost.content} onChange={handleChange} />
                 </label>
                 

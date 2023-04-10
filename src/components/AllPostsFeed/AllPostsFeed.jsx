@@ -16,11 +16,13 @@ export default function AllPostsFeed({user}) {
 
     return (
         <>
-            <NewPostsForm posts={posts} setPosts={setPosts} user={user} />
             <div>
+                <NewPostsForm posts={posts} setPosts={setPosts} user={user} />
+            
                 { posts.map((post) => (
                     <div key={post._id}>
-                        <h1>{post.user.firstName}</h1>
+                        <h3>{post.user.firstName} {post.user.lastName}</h3>
+                        <div>@{post.user.userName}</div>
                         <div>{post.content}</div>
                     </div>
                 ))}
