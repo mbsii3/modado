@@ -4,6 +4,7 @@ import { getUser } from '../../utilities/users-service';
 import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../AuthPage/AuthPage';
 import UserInfoCard from '../../components/UserInfoCard/UserInfoCard';
+import NewPostsForm from '../../components/NewPostsForm/NewPostsForm';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -13,6 +14,7 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <UserInfoCard user={user} />
+          <NewPostsForm />
 
         </>
         :
