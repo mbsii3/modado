@@ -17,6 +17,7 @@ export default function NewPostsForm({posts, setPosts}) {
     async function handleSubmit(e) {
         e.preventDefault();
         await postsService.createPost(newPost);
+        setPosts([newPost, ...posts]);
         setNewPost({
         firstName: '',
         lastName: '',
