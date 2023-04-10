@@ -18,7 +18,7 @@ export default function AllPostsFeed() {
         <>
             <NewPostsForm posts={posts} setPosts={setPosts} />
             <div>
-                { posts.map(post => <div>{ post.content }</div> ) }
+                { posts.map((post, idx) => <h1 key={idx} >{post.content}</h1> ) }
             </div>
         </>
     );
