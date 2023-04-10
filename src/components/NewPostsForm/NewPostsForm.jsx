@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as postsService from "../../utilities/posts-service";
-import { FormControl } from "@mui/material";
+import { TextField, Button, FormGroup, Box } from "@mui/material";
 
 
 export default function NewPostsForm({setPosts}) {
@@ -25,16 +25,15 @@ export default function NewPostsForm({setPosts}) {
 
     return (
         <>
-            <FormControl>
-                <form action="" onSubmit={handleSubmit} >
-                    <label htmlFor="content">
-                        <input type="text" name="content" id="content" value={newPost.content} onChange={handleChange} />
-                    </label>
-                    
-                    <input type="submit" />
+            <Box sx={{mt: 1, p: 1}}>
+                <form onSubmit={handleSubmit}>
+                    <FormGroup>
+                            <TextField id="outlined-basic" label="What's on your mind?" variant="outlined" name="content" value={newPost.content} onChange={handleChange} />
+                            <Button type="submit">Submit</Button>
+                    </FormGroup>
                 </form>
-            </FormControl>
-     
+            </Box>
         </>
     );
 }
+
