@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import * as postsService from "../../utilities/posts-service";
 import NewPostsForm from "../NewPostsForm/NewPostsForm";
-import { Card } from "@mui/material";
+import { Card, Typography } from "@mui/material";
 
 export default function AllPostsFeed() {
     const [posts, setPosts] = useState([]);
@@ -18,19 +18,20 @@ export default function AllPostsFeed() {
     return (
         <>
             <Card sx={{mt: 2}} >
-                <Card sx={{}} >
+                <Card >
                     <NewPostsForm setPosts={setPosts} />
                 </Card>
-                <Card>
-                    { posts.map((post) => (
-                        <div key={post._id}>
-                            <h3>{post.user.firstName} {post.user.lastName}</h3>
-                            <div>@{post.user.userName}</div>
-                            <div>{post.content}</div>
-                        </div>
-                    ))}
-                </Card>
             </Card>
+            <Card sx={{mt: 2}}>
+                    { posts.map((post) => (
+                        <Card variant="outlined" sx={{m: 1, p: 1.5}} key={post._id} >
+                            <Typography variant="h6" >{post.user.firstName} {post.user.lastName}</Typography>
+                            <Typography variant="body2" sx={{mt: -1}} >@{post.user.userName}</Typography>
+                            <Typography variant="body1" sx={{mt: 1}} >{post.content}</Typography>
+                        </Card>
+                    ))}
+            </Card>
+                   
         </>
     );
 }
