@@ -15,7 +15,7 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <UserInfoCard user={user} />
-          <AllPostsFeed />
+          <AllPostsFeed user={user} />
 
         </>
         :

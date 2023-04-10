@@ -1,13 +1,12 @@
 import { useState } from "react";
 import * as postsService from "../../utilities/posts-service";
 
-export default function NewPostsForm({posts, setPosts}) {
+
+export default function NewPostsForm({posts, setPosts, user}) {
     const [newPost, setNewPost] = useState({
-        firstName: '',
-        lastName: '',
-        userName: '',
         content: '',
     });
+    
 
 
     function handleChange(e) {
@@ -17,21 +16,19 @@ export default function NewPostsForm({posts, setPosts}) {
     async function handleSubmit(e) {
         e.preventDefault();
         await postsService.createPost(newPost);
-        setPosts([newPost, ...posts]);
-        setNewPost({
-        firstName: '',
-        lastName: '',
-        userName: '',
-        content: '',
-        });
+        
+        setNewPost({content: ''});
+        const allPosts = await postsService.index();
+        setPosts(allPosts);
     }
 
     return (
         <>
             <form action="" onSubmit={handleSubmit} >
-                <label htmlFor="content">
+                <label htmlFor="content">Content:
                     <input type="text" name="content" id="content" value={newPost.content} onChange={handleChange} />
                 </label>
+                
                 <input type="submit" />
             </form>
         </>

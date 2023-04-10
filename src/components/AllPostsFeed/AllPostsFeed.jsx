@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import * as postsService from "../../utilities/posts-service";
 import NewPostsForm from "../NewPostsForm/NewPostsForm";
 
-export default function AllPostsFeed() {
+export default function AllPostsFeed({user}) {
     const [posts, setPosts] = useState([]);
 
     useEffect(function() {
@@ -16,9 +16,14 @@ export default function AllPostsFeed() {
 
     return (
         <>
-            <NewPostsForm posts={posts} setPosts={setPosts} />
+            <NewPostsForm posts={posts} setPosts={setPosts} user={user} />
             <div>
-                { posts.map((post, idx) => <h1 key={idx} >{post.content}</h1> ) }
+                { posts.map((post) => (
+                    <div key={post._id}>
+                        <h1>{post.user.firstName}</h1>
+                        <div>{post.content}</div>
+                    </div>
+                ))}
             </div>
         </>
     );
