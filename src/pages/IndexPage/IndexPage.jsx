@@ -1,0 +1,21 @@
+import UserInfoCard from "../../components/UserInfoCard/UserInfoCard";
+import AllPostsFeed from "../../components/AllPostsFeed/AllPostsFeed";
+import { Grid } from "@mui/material";
+
+export default function IndexPage({ user }) {
+   return (
+    <Grid container spacing={0} >
+        <Grid item xs>
+            
+            <UserInfoCard user={user} />
+        
+        </Grid>
+        <Grid item xs={6}>
+            <AllPostsFeed />
+        </Grid>
+        <Grid item xs>
+              
+        </Grid>
+    </Grid>
+   ); 
+}
