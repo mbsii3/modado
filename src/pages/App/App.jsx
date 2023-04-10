@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+// import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../AuthPage/AuthPage';
-import IndexPage from '../IndexPage/IndexPage';
+import UserInfoCard from '../../components/UserInfoCard/UserInfoCard';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -12,9 +12,8 @@ export default function App() {
       { user ?
         <>
           <NavBar user={user} setUser={setUser} />
-          <Routes>
-            <Route path='/' element={<IndexPage />}></Route>
-          </Routes>
+          <UserInfoCard user={user} />
+
         </>
         :
         <AuthPage setUser={setUser} />

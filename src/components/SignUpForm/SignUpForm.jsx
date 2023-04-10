@@ -3,8 +3,12 @@ import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
     state = {
-        name: '',
+        firstName: '',
+        lastName: '',
+        userName: '',
         email: '',
+        location: '',
+        occupation: '',
         password: '',
         confirm: '',
         error: ''
@@ -20,8 +24,8 @@ export default class SignUpForm extends Component {
     handleSubmit = async (evt) => {
         evt.preventDefault();
         try {
-            const {name, email, password} = this.state;
-            const formData = {name, email, password};
+            const {firstName, lastName, userName, email, location, occupation, password} = this.state;
+            const formData = {firstName, lastName, userName, email, location, occupation, password};
             const user = await signUp(formData);
             this.props.setUser(user);
             
@@ -36,10 +40,18 @@ export default class SignUpForm extends Component {
           <div>
             <div className="form-container">
               <form autoComplete="off" onSubmit={this.handleSubmit}>
-                <label>Name</label>
-                <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+                <label>First Name</label>
+                <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} required />
+                <label>Last Name</label>
+                <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange} required />
+                <label>User Name</label>
+                <input type="text" name="userName" value={this.state.userName} onChange={this.handleChange} required />
                 <label>Email</label>
                 <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+                <label>Location</label>
+                <input type="text" name="location" value={this.state.location} onChange={this.handleChange} />
+                <label>Occupation</label>
+                <input type="text" name="occupation" value={this.state.occupation} onChange={this.handleChange} />
                 <label>Password</label>
                 <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
                 <label>Confirm</label>
