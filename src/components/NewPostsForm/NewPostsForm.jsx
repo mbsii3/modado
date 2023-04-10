@@ -1,8 +1,7 @@
 import { useState } from "react";
 import * as postsService from "../../utilities/posts-service";
-import AllPostsFeed from "../AllPostsFeed/AllPostsFeed";
 
-export default function NewPostsForm() {
+export default function NewPostsForm({posts, setPosts}) {
     const [newPost, setNewPost] = useState({
         firstName: '',
         lastName: '',
@@ -34,7 +33,6 @@ export default function NewPostsForm() {
                 </label>
                 <input type="submit" />
             </form>
-            <AllPostsFeed />
         </>
     );
 }

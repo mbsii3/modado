@@ -1,7 +1,18 @@
 const Post = require('../../models/post');
 
 module.exports = {
+
+    index,
     create
+}
+
+async function index(req, res) {
+    try {
+        const allPosts = await Post.find({});
+        res.json(allPosts)
+    } catch (err) {
+        res.json(400)
+    }
 }
 
 async function create(req, res) {
