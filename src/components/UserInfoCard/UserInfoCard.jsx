@@ -1,20 +1,24 @@
+import { Card, CardContent, Typography } from "@mui/material";
+
 export default function UserInfoCard({user}) {
     return (
         <>
-            <div>
-                <div>
-                    {user.firstName} {user.lastName}
-                </div>
-                <div>
-                    @{user.userName}
-                </div>
-                <div>
-                    {user.location}
-                </div>
-                <div>
-                    {user.occupation}
-                </div>
-            </div>
+                <Card sx={{  m:2 }}>
+                    <CardContent>
+                        <Typography variant="h5" sx={{ fontWeight: 700 }} >
+                        {user.firstName} {user.lastName}
+                        </Typography>
+                        <Typography sx={{ fontSize: 12, mt: -1, mb: 4 }}>
+                        @{user.userName}
+                        </Typography>
+                        <Typography sx={{ fontSize: 14 }}>
+                        {user.location}
+                        </Typography>
+                        <Typography sx={{ fontSize: 14 }}>
+                        {user.occupation}
+                        </Typography>
+                    </CardContent>
+                </Card>
         </>
     );
 }

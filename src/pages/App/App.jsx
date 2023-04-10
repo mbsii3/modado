@@ -5,6 +5,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../AuthPage/AuthPage';
 import UserInfoCard from '../../components/UserInfoCard/UserInfoCard';
 import AllPostsFeed from '../../components/AllPostsFeed/AllPostsFeed';
+import { Grid } from '@mui/material';
 
 
 export default function App() {
@@ -14,8 +15,20 @@ export default function App() {
       { user ?
         <>
           <NavBar user={user} setUser={setUser} />
-          <UserInfoCard user={user} />
-          <AllPostsFeed user={user} />
+          <Grid container spacing={0} >
+            <Grid item xs>
+              
+                <UserInfoCard user={user} />
+              
+
+            </Grid>
+            <Grid item xs={6}>
+              <AllPostsFeed />
+            </Grid>
+            <Grid item xs>
+              
+            </Grid>
+          </Grid>
 
         </>
         :

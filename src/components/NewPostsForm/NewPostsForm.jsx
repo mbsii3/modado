@@ -1,8 +1,9 @@
 import { useState } from "react";
 import * as postsService from "../../utilities/posts-service";
+import { FormControl } from "@mui/material";
 
 
-export default function NewPostsForm({posts, setPosts, user}) {
+export default function NewPostsForm({setPosts}) {
     const [newPost, setNewPost] = useState({
         content: '',
     });
@@ -24,13 +25,16 @@ export default function NewPostsForm({posts, setPosts, user}) {
 
     return (
         <>
-            <form action="" onSubmit={handleSubmit} >
-                <label htmlFor="content">
-                    <input type="text" name="content" id="content" value={newPost.content} onChange={handleChange} />
-                </label>
-                
-                <input type="submit" />
-            </form>
+            <FormControl>
+                <form action="" onSubmit={handleSubmit} >
+                    <label htmlFor="content">
+                        <input type="text" name="content" id="content" value={newPost.content} onChange={handleChange} />
+                    </label>
+                    
+                    <input type="submit" />
+                </form>
+            </FormControl>
+     
         </>
     );
 }
