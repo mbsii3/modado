@@ -12,7 +12,7 @@ export default function IndexPage({ user }) {
         </Grid>
         <Grid item xs={6}>
             
-            <AllPostsFeed />
+            <AllPostsFeed user={user} />
         </Grid>
         <Grid item xs>
               
