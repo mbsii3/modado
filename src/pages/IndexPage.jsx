@@ -1,6 +1,8 @@
 import UserInfoCard from "../components/UserInfoCard";
 import AllPostsFeed from "../components/AllPostsFeed";
+
 import { Grid } from "@mui/material";
+import WeatherWidget from "../components/WeatherWidget";
 
 export default function IndexPage({ user }) {
    return (
@@ -15,6 +17,7 @@ export default function IndexPage({ user }) {
             <AllPostsFeed user={user} />
         </Grid>
         <Grid item xs>
+            <WeatherWidget />
               
         </Grid>
         </Grid>

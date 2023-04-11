@@ -8,24 +8,26 @@ export default function UserInfoCard({user}) {
         <>
                 <Card sx={{  m:2 }}>
                     <CardContent>
-                        <Typography variant="h5" sx={{ fontWeight: 700 }} >
+                        <Typography variant="h5" sx={{ fontWeight: 700, fontFamily: 'outfit' }} >
                         {user.firstName} {user.lastName}
                         </Typography>
-                        <Typography sx={{ fontSize: 12, mt: -1 }}>
+                        <Typography sx={{ fontSize: 12, mt: -1, fontFamily: 'outfit' }}>
                         @{user.userName}
                         </Typography>
                         <img className="user-img" src={userImage} alt="" />
                         <Typography sx={{ 
                             fontSize: 12,
                             display: "flex",
-                            flexWrap: "wrap"
+                            flexWrap: "wrap",
+                            fontFamily: 'outfit'
                              }}>
                         <PlaceIcon sx={{fontSize: 16, mr: 1}} /> {user.location}
                         </Typography>
                         <Typography sx={{ 
                             fontSize: 12,
                             display: "flex",
-                            flexWrap: "wrap"
+                            flexWrap: "wrap",
+                            fontFamily: 'outfit'
                              }}>
                         <WorkIcon sx={{fontSize: 16, mr: 1}} /> {user.occupation}
                         </Typography>

@@ -63,9 +63,9 @@ export default function AllPostsFeed({user}) {
                         <Card variant="outlined" sx={{m: 1, p: 1.5}} key={post._id} >
         
                             <img className="comment-user-img" src={userImage} alt="" />
-                            <Typography variant="subtitle1" sx={{mt: .7}} >{post.user.firstName} {post.user.lastName}</Typography>
-                            <Typography variant="body2" sx={{mt: -1}} >@{post.user.userName}</Typography>
-                            <Typography variant="body1" sx={{ml: 3, mt: 3}} >{post.content}</Typography>
+                            <Typography variant="subtitle1" sx={{mt: .7, fontFamily: 'outfit'}} >{post.user.firstName} {post.user.lastName}</Typography>
+                            <Typography variant="body2" sx={{mt: -1, fontFamily: 'outfit'}} >@{post.user.userName}</Typography>
+                            <Typography variant="body1" sx={{ml: 3, mt: 3, fontFamily: 'outfit'}} >{post.content}</Typography>
 
                             { user._id === post.user._id ?
                             <Box sx={{ display: "flex" , justifyContent: "right"}}>
@@ -76,9 +76,9 @@ export default function AllPostsFeed({user}) {
                             <EditPopUp trigger={editBtnPopUp} setTrigger={setEditBtnPopUp} >
                                 <form onSubmit={handleSubmit} >
                                     <FormGroup>
-                                        <InputLabel>Changed your mind?</InputLabel>
+                                        <InputLabel sx={{fontFamily: 'outfit'}} >Changed your mind?</InputLabel>
                                         <TextField id="outlined-basic" variant="outlined"  name="content" value={editedPost.content}  onChange={handleChange} />
-                                        <Button type="submit">Edit</Button>
+                                        <Button type="submit" sx={{fontFamily: 'outfit'}}>Edit</Button>
                                     </FormGroup>
                                 </form>
                             </EditPopUp>

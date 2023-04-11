@@ -14,14 +14,14 @@ export default function NavBar({user, setUser}) {
 
     return (
         <AppBar position="static">
-            <Container maxWidth="xl">
+            <Container sx={{minWidth: "100%"}}>
                 <Toolbar>
-                    <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
+                    <Typography variant="h4" component="div" sx={{ flexGrow: 1, fontFamily: 'outfit' }}>
                     <Link to='/home' >
                         Modado
                     </Link>
                     </Typography>
-                    <Button color="inherit" onClick={handleLogOut}>Log Out</Button>
+                    <Button color="inherit" sx={{fontFamily: 'outfit'}} onClick={handleLogOut}>Log Out</Button>
                     
                     
                 </Toolbar>

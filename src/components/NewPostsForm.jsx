@@ -28,8 +28,8 @@ export default function NewPostsForm({setPosts}) {
             <Box sx={{mt: 1, p: 1}}>
                 <form onSubmit={handleSubmit}>
                     <FormGroup>
-                            <TextField id="outlined-basic" label="What's on your mind?" variant="outlined" name="content" value={newPost.content} onChange={handleChange} />
-                            <Button type="submit">Submit</Button>
+                            <TextField sx={{fontFamily: 'outfit'}} id="outlined-basic" label="What's on your mind?" variant="outlined" name="content" value={newPost.content} onChange={handleChange} />
+                            <Button type="submit" sx={{fontFamily: 'outfit'}} >Submit</Button>
                     </FormGroup>
                 </form>
             </Box>
