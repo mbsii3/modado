@@ -33,11 +33,11 @@ export default function AllPostsFeed() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        setBtnPopUp(false);
         await postsService.updatePost(editedPost)
-        setEditedPost('');
+        setEditedPost({content: ''});
         const allPosts = await postsService.index();
         setPosts(allPosts);
+        setBtnPopUp(false);
     }
 
     return (

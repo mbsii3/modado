@@ -44,7 +44,6 @@ async function updatePost(req, res) {
         const updatedPost = await Post.findByIdAndUpdate(req.body._id, { $set: {
             content: req.body.content,
         }}, { new: true });
-        console.log(updatedPost);
         res.json(updatedPost)
     } catch (err) {
         res.json(400)
