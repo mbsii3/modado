@@ -9,6 +9,7 @@ import CreateIcon from '@mui/icons-material/Create';
 export default function AllPostsFeed() {
     const [posts, setPosts] = useState([]);
     const [btnPopUp, setBtnPopUp] = useState(false)
+    const [editedPost, setEditedPost] = useState({content: ''});
 
     useEffect(function() {
         getAllPosts();
@@ -19,9 +20,24 @@ export default function AllPostsFeed() {
         setPosts(allPosts);
     }
 
-    function editPost(id) {
+
+    async function editPost(id) {
         setBtnPopUp(true);
-        console.log(id)
+        let postToEdit = await postsService.getPost(id)
+        setEditedPost(postToEdit);
+    }
+
+    function handleChange(e) {
+        setEditedPost({ ...editedPost, [e.target.name ]: e.target.value });
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        setBtnPopUp(false);
+        await postsService.updatePost(editedPost)
+        setEditedPost('');
+        const allPosts = await postsService.index();
+        setPosts(allPosts);
     }
 
     return (
@@ -41,10 +57,10 @@ export default function AllPostsFeed() {
                             <Typography variant="body1" sx={{mt: 1}} >{post.content}</Typography>
                             <CreateIcon onClick={() => editPost(post._id)} />
                             <EditPopUp trigger={btnPopUp} setTrigger={setBtnPopUp} >
-                                <form action="">
+                                <form onSubmit={handleSubmit} >
                                     <FormGroup>
-                                        <TextField />
-                                        <Button type="submit">Submit</Button>
+                                        <TextField id="outlined-basic" variant="outlined"  name="content" value={editedPost.content}  onChange={handleChange} />
+                                        <Button type="submit">Edit</Button>
                                     </FormGroup>
                                 </form>
                             </EditPopUp>
