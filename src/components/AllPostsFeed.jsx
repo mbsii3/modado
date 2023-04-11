@@ -9,7 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function AllPostsFeed() {
     const [posts, setPosts] = useState([]);
-    const [btnPopUp, setBtnPopUp] = useState(false)
+    const [editBtnPopUp, setEditBtnPopUp] = useState(false)
     const [editedPost, setEditedPost] = useState({content: ''});
 
     useEffect(function() {
@@ -30,7 +30,7 @@ export default function AllPostsFeed() {
 
 
     async function editPost(id) {
-        setBtnPopUp(true);
+        setEditBtnPopUp(true);
         let postToEdit = await postsService.getPost(id)
         setEditedPost(postToEdit);
     }
@@ -45,7 +45,7 @@ export default function AllPostsFeed() {
         setEditedPost({content: ''});
         const allPosts = await postsService.index();
         setPosts(allPosts);
-        setBtnPopUp(false);
+        setEditBtnPopUp(false);
     }
 
     return (
@@ -65,7 +65,7 @@ export default function AllPostsFeed() {
                             <Typography variant="body1" sx={{mt: 1}} >{post.content}</Typography>
                             <CreateIcon onClick={() => editPost(post._id)} />
                             <DeleteIcon onClick={() => deletePost(post._id)} />
-                            <EditPopUp trigger={btnPopUp} setTrigger={setBtnPopUp} >
+                            <EditPopUp trigger={editBtnPopUp} setTrigger={setEditBtnPopUp} >
                                 <form onSubmit={handleSubmit} >
                                     <FormGroup>
                                         <TextField id="outlined-basic" variant="outlined"  name="content" value={editedPost.content}  onChange={handleChange} />
