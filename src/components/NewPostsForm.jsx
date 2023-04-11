@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as postsService from "../../utilities/posts-service";
+import * as postsService from "../utilities/posts-service";
 import { TextField, Button, FormGroup, Box } from "@mui/material";
 
 

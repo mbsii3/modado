@@ -1,5 +1,5 @@
-import UserInfoCard from "../../components/UserInfoCard/UserInfoCard";
-import AllPostsFeed from "../../components/AllPostsFeed/AllPostsFeed";
+import UserInfoCard from "../components/UserInfoCard";
+import AllPostsFeed from "../components/AllPostsFeed";
 import { Grid } from "@mui/material";
 
 export default function IndexPage({ user }) {
@@ -16,6 +16,6 @@ export default function IndexPage({ user }) {
         <Grid item xs>
               
         </Grid>
-    </Grid>
+        </Grid>
    ); 
 }

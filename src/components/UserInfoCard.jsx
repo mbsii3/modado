@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import PlaceIcon from '@mui/icons-material/Place';
 import WorkIcon from '@mui/icons-material/Work';
-import userImage from "../../images/user.jpg";
+import userImage from "../images/user.jpg";
 
 export default function UserInfoCard({user}) {
     return (
