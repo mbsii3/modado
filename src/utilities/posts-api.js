@@ -16,3 +16,7 @@ export async function updatePost(postObj) {
 export async function createPost(postData) {
     return await sendRequest(BASE_URL, 'POST', postData);
 }
+
+export async function deletePost(postObj) {
+    return await sendRequest(`${BASE_URL}/delete`, 'DELETE', postObj);
+}

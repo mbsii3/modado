@@ -4,6 +4,7 @@ import NewPostsForm from "./NewPostsForm";
 import EditPopUp from "./EditPopUp";
 import { Card, FormGroup, TextField, Typography, Button } from "@mui/material";
 import CreateIcon from '@mui/icons-material/Create';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 export default function AllPostsFeed() {
@@ -16,6 +17,13 @@ export default function AllPostsFeed() {
     }, []);
 
     async function getAllPosts() {
+        const allPosts = await postsService.index();
+        setPosts(allPosts);
+    }
+
+    async function deletePost(id) {
+        let postToDelete = await postsService.getPost(id)
+        await postsService.deletePost(postToDelete);
         const allPosts = await postsService.index();
         setPosts(allPosts);
     }
@@ -56,6 +64,7 @@ export default function AllPostsFeed() {
                             <Typography variant="body2" sx={{mt: -1}} >@{post.user.userName}</Typography>
                             <Typography variant="body1" sx={{mt: 1}} >{post.content}</Typography>
                             <CreateIcon onClick={() => editPost(post._id)} />
+                            <DeleteIcon onClick={() => deletePost(post._id)} />
                             <EditPopUp trigger={btnPopUp} setTrigger={setBtnPopUp} >
                                 <form onSubmit={handleSubmit} >
                                     <FormGroup>

@@ -15,3 +15,7 @@ export async function getPost(id) {
 export async function updatePost(postObj) {
     return await postsAPI.updatePost(postObj);
 }
+
+export async function deletePost(postObj) {
+    return await postsAPI.deletePost(postObj);
+}
