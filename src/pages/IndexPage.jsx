@@ -11,6 +11,7 @@ export default function IndexPage({ user }) {
         
         </Grid>
         <Grid item xs={6}>
+            
             <AllPostsFeed />
         </Grid>
         <Grid item xs>
