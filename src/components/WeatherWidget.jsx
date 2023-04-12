@@ -16,7 +16,6 @@ export default function WeatherWidget() {
         if (e.key === 'Enter') {
             fetch(url).then((response) => response.json()).then((data) => {
                 setData(data)
-                console.log(data);
             });
             setLocation('');
         }
@@ -24,7 +23,7 @@ export default function WeatherWidget() {
     }
 
     return (
-        <Card sx={{ m: 2, mr: 20, minHeight: '275px', backgroundImage: `url(${backgroundImg})`, backgroundSize: 'cover' }}>
+        <Card sx={{ m: 2, minHeight: '275px', backgroundImage: `url(${backgroundImg})`, backgroundSize: 'cover' }}>
             <Container sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", position: "relative" }}>
                     <Input sx={{fontFamily: 'outfit',color: 'white'}} type="text" placeholder="Search a City" value={location} onChange={e => setLocation(e.target.value)} onKeyDown={searchLocation} />
                 <Box sx={{ mt: .5 }}>
