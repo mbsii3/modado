@@ -9,13 +9,15 @@ export default function UserInfoCard({user}) {
         <>
                 <Card sx={{  m:2 }}>
                     <CardContent>
+                    <Link to={user._id} >
                         <Typography variant="h5" sx={{ fontWeight: 700, fontFamily: 'outfit' }} >
-                           <Link to={user._id} >{user.firstName} {user.lastName}</Link>
+                           {user.firstName} {user.lastName}
                         </Typography>
                         <Typography sx={{ fontSize: 12, mt: -1, fontFamily: 'outfit' }}>
                         @{user.userName}
                         </Typography>
                         <img className="user-img" src={userImage} alt="" />
+                        </Link>
                         <Typography sx={{ 
                             fontSize: 12,
                             display: "flex",
