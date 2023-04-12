@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function UserInfoCard({user}) {
     return (
         <>
-                <Card sx={{  m:2 }}>
+                <Card sx={{  m:2, ml: 20, minHeight: '275px' }}>
                     <CardContent>
                     <Link to={user._id} >
                         <Typography variant="h5" sx={{ fontWeight: 700, fontFamily: 'outfit' }} >

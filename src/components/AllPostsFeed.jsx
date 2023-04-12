@@ -65,7 +65,7 @@ export default function AllPostsFeed({user}) {
                             <img className="comment-user-img" src={userImage} alt="" />
                             <Typography variant="subtitle1" sx={{mt: .7, fontFamily: 'outfit'}} >{post.user.firstName} {post.user.lastName}</Typography>
                             <Typography variant="body2" sx={{mt: -1, fontFamily: 'outfit'}} >@{post.user.userName}</Typography>
-                            <Typography variant="body1" sx={{ml: 3, mt: 3, fontFamily: 'outfit'}} >{post.content}</Typography>
+                            <Typography variant="body1" sx={{mx: 3, mt: 3, mb: 2, fontFamily: 'outfit'}} >{post.content}</Typography>
 
                             { user._id === post.user._id ?
                             <Box sx={{ display: "flex" , justifyContent: "right"}}>

@@ -12,7 +12,7 @@ export default function IndexPage({ user }) {
             <UserInfoCard user={user} />
         
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={5}>
             
             <AllPostsFeed user={user} />
         </Grid>
