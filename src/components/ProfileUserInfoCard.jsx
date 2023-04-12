@@ -2,15 +2,14 @@ import { Card, CardContent, Typography } from "@mui/material";
 import PlaceIcon from '@mui/icons-material/Place';
 import WorkIcon from '@mui/icons-material/Work';
 import userImage from "../images/user.jpg";
-import { Link } from "react-router-dom";
 
-export default function UserInfoCard({user}) {
+export default function ProfileUserInfoCard({user}) {
     return (
         <>
                 <Card sx={{  m:2 }}>
                     <CardContent>
                         <Typography variant="h5" sx={{ fontWeight: 700, fontFamily: 'outfit' }} >
-                           <Link to={user._id} >{user.firstName} {user.lastName}</Link>
+                           {user.firstName} {user.lastName}
                         </Typography>
                         <Typography sx={{ fontSize: 12, mt: -1, fontFamily: 'outfit' }}>
                         @{user.userName}

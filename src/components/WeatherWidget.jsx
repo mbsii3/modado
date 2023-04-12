@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Card, Typography, Container } from "@mui/material";
 
 
 
@@ -23,36 +23,36 @@ export default function WeatherWidget() {
 
     return (
         <Card sx={{ m: 2,}}>
-            <Box>
+            <Container>
                 <Box>
-                    <Box>
+                    <Box sx={{fontFamily: 'outfit'}}>
                         <input type="text" placeholder="Search a City" value={location} onChange={e => setLocation(e.target.value)} onKeyDown={searchLocation} />
-                        <Typography sx={{fontFamily: 'outfit'}} >{data.name}</Typography>
+                        <Typography >{data.name}</Typography>
                     </Box>
                     <Box>
                         { data.main ?
-                        <Typography variant="h3" sx={{fontFamily: 'outfit'}}>{Math.floor(data.main.temp)}°F</Typography> : null}
+                        <Typography variant="h3" >{Math.floor(data.main.temp)}°F</Typography> : null}
                     </Box>
                     <Box>
                         { data.weather ?
-                        <Typography sx={{fontFamily: 'outfit'}}>{ data.weather[0].main }</Typography> : null }
+                        <Typography >{ data.weather[0].main }</Typography> : null }
                     </Box>
                 </Box>
                 <Box>
                     <Box>
                         { data.main ? 
-                        <Typography sx={{fontFamily: 'outfit'}}>Feels like {Math.floor(data.main.feels_like)}°F</Typography>: null }
+                        <Typography >Feels like {Math.floor(data.main.feels_like)}°F</Typography>: null }
                     </Box>
                     <Box>
                         { data.main ? 
-                        <Typography sx={{fontFamily: 'outfit'}}>{data.main.humidity}%</Typography>: null}
+                        <Typography >{data.main.humidity}%</Typography>: null}
                     </Box>
                     <Box>
                         { data.wind ?
-                        <Typography sx={{fontFamily: 'outfit'}}>{Math.floor(data.wind.speed)} MPH</Typography>: null}
+                        <Typography >{Math.floor(data.wind.speed)} MPH</Typography>: null}
                     </Box>
                 </Box>  
-            </Box>
+            </Container>
         </Card>
     );
 
