@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import * as postsService from "../utilities/posts-service";
 import NewPostsForm from "./NewPostsForm";
 import EditPopUp from "./EditPopUp";
@@ -11,14 +12,15 @@ export default function UserPostsFeed({user}) {
     const [posts, setPosts] = useState([]);
     const [editBtnPopUp, setEditBtnPopUp] = useState(false)
     const [editedPost, setEditedPost] = useState({content: ''});
+    let { id } = useParams();
 
     useEffect(function() {
-        getAllPosts();
+        getUserPosts();
     }, []);
 
-    async function getAllPosts() {
-        const allPosts = await postsService.index();
-        setPosts(allPosts);
+    async function getUserPosts() {
+        const userPosts = await postsService.userIndex(id);
+        setPosts(userPosts);
     }
 
     async function deletePost(id) {
@@ -65,12 +67,12 @@ export default function UserPostsFeed({user}) {
                             <Typography variant="body2" sx={{mt: -1, fontFamily: 'outfit'}} >@{post.user.userName}</Typography>
                             <Typography variant="body1" sx={{ml: 3, mt: 3, fontFamily: 'outfit'}} >{post.content}</Typography>
 
-                            { user._id === post.user._id ?
+                
                             <Box sx={{ display: "flex" , justifyContent: "right"}}>
                                 <CreateIcon sx={{cursor: "pointer", color: "blue", fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
                                 <DeleteIcon sx={{cursor: "pointer", color: "red", fontSize: "2.5vmin", my: -1, mr: -1}} onClick={() => deletePost(post._id)} />
                             </Box>
-                            : <Box sx={{mt: 1}}></Box>}
+                            
                             <EditPopUp trigger={editBtnPopUp} setTrigger={setEditBtnPopUp} >
                                 <form onSubmit={handleSubmit} >
                                     <FormGroup>

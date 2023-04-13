@@ -3,6 +3,7 @@ const Post = require('../../models/post');
 module.exports = {
 
     index,
+    userIndex,
     create,
     getPost,
     updatePost,
@@ -11,8 +12,20 @@ module.exports = {
 
 async function index(req, res) {
     try {
-        const allPosts = await Post.find({}).populate('user').sort({createdAt: 'desc'});
+        const allPosts = await Post.find({})
+        .populate('user').sort({createdAt: 'desc'});
         res.json(allPosts)
+    } catch (err) {
+        res.json(400)
+    }
+}
+
+async function userIndex(req, res) {
+    try {
+        const userPosts = await Post.where('user')
+        .equals(req.params.id).populate('user')
+        .sort({createdAt: 'desc'});
+        res.json(userPosts)
     } catch (err) {
         res.json(400)
     }
