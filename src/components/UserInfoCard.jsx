@@ -7,16 +7,16 @@ import { Link } from "react-router-dom";
 export default function UserInfoCard({user}) {
     return (
         <>
-                <Card sx={{  m:2 , minHeight: '275px' }}>
-                    <CardContent>
+                <Card sx={{  m:2 , height: '200px' }}>
+                    <CardContent sx={{ textAlign: "center" }}>
                     <Link to={`users/${user._id}`} >
-                        <Typography variant="h5" sx={{ fontWeight: 700, fontFamily: 'outfit' }} >
+                        <img className="user-img" src={userImage} alt="" />
+                        <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: 'outfit' }} >
                            {user.firstName} {user.lastName}
                         </Typography>
                         <Typography sx={{ fontSize: 12, mt: -1, fontFamily: 'outfit' }}>
                         @{user.userName}
                         </Typography>
-                        <img className="user-img" src={userImage} alt="" />
                         </Link>
                         <Typography sx={{ 
                             fontSize: 12,
