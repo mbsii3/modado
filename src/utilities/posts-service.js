@@ -4,8 +4,8 @@ export async function index() {
     return await postsAPI.getAllPosts();
 }
 
-export async function userIndex(id) {
-    return await postsAPI.getUserPosts(id);
+export async function userIndex(userId) {
+    return await postsAPI.getUserPosts(userId);
 }
 
 export async function createPost(postData) {

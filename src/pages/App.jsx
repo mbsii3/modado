@@ -16,7 +16,7 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route index element={<IndexPage user={user} />} />
-            <Route path=':id' element={<UserProfilePage user={user} />} />
+            <Route path='/users/:userId' element={<UserProfilePage user={user} />} />
           </Routes>
           
           

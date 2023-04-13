@@ -4,7 +4,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 const postsCtrl = require('../../controllers/api/posts');
 
 router.get('/', ensureLoggedIn, postsCtrl.index);
-router.get('/:id', ensureLoggedIn, postsCtrl.userIndex);
+router.get('/:userId/posts', ensureLoggedIn, postsCtrl.userPostsIndex);
 router.get('/:id', ensureLoggedIn, postsCtrl.getPost);
 router.post('/', ensureLoggedIn, postsCtrl.create);
 router.put('/update', ensureLoggedIn, postsCtrl.updatePost);

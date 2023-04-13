@@ -9,7 +9,7 @@ export default function UserInfoCard({user}) {
         <>
                 <Card sx={{  m:2 , minHeight: '275px' }}>
                     <CardContent>
-                    <Link to={user._id} >
+                    <Link to={`users/${user._id}`} >
                         <Typography variant="h5" sx={{ fontWeight: 700, fontFamily: 'outfit' }} >
                            {user.firstName} {user.lastName}
                         </Typography>

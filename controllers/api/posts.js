@@ -3,7 +3,7 @@ const Post = require('../../models/post');
 module.exports = {
 
     index,
-    userIndex,
+    userPostsIndex,
     create,
     getPost,
     updatePost,
@@ -20,10 +20,10 @@ async function index(req, res) {
     }
 }
 
-async function userIndex(req, res) {
+async function userPostsIndex(req, res) {
     try {
         const userPosts = await Post.where('user')
-        .equals(req.params.id).populate('user')
+        .equals(req.params.userId).populate('user')
         .sort({createdAt: 'desc'});
         res.json(userPosts)
     } catch (err) {

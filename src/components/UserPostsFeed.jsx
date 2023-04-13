@@ -12,14 +12,14 @@ export default function UserPostsFeed({user}) {
     const [posts, setPosts] = useState([]);
     const [editBtnPopUp, setEditBtnPopUp] = useState(false)
     const [editedPost, setEditedPost] = useState({content: ''});
-    let { id } = useParams();
+    let { userId } = useParams();
 
     useEffect(function() {
         getUserPosts();
     }, []);
 
     async function getUserPosts() {
-        const userPosts = await postsService.userIndex(id);
+        const userPosts = await postsService.userIndex(userId);
         setPosts(userPosts);
     }
 

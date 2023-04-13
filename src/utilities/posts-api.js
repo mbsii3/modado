@@ -5,8 +5,8 @@ export async function getAllPosts() {
     return await sendRequest(BASE_URL);
 }
 
-export async function getUserPosts(id) {
-    return await sendRequest(`${BASE_URL}/${id}`);
+export async function getUserPosts(userId) {
+    return await sendRequest(`${BASE_URL}/${userId}/posts`);
 }
 
 export async function getPost(id) {

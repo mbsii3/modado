@@ -21,9 +21,10 @@ export default function NewsFeed() {
     
     return (
         
-        articles.map(article => {
+        articles.map((article, idx) => {
             return (
             <NewsFeedItem 
+                key={idx} 
                 title={article.title}
                 description={article.description}
                 url={article.url}
