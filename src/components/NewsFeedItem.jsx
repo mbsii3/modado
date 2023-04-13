@@ -6,7 +6,7 @@ export default function NewsFeedItem({ title, description, url }) {
     
         <Box sx={{m: 1.5}}>
             <Card sx={{ p: 2 }}>
-                <Typography sx={{mb: 1}} ><a href={url} target="_blank">{title}</a></Typography>
+                <Typography sx={{mb: 1}} ><a href={url} target="_blank" rel="noreferrer">{title}</a></Typography>
                 <Typography variant="body2" >{description}</Typography>
             </Card>
         </Box>

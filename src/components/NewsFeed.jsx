@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import NewsFeedItem from "./NewsFeedItem";
-import { Card } from "@mui/material";
 
 export default function NewsFeed() {
     const [articles, setArticles] = useState([]);
@@ -21,19 +20,19 @@ export default function NewsFeed() {
 
     
     return (
+       <> 
+       { articles.map((article, idx) => (
         
-        articles.map((article, idx) => {
-        
-            return (
+            
             <NewsFeedItem 
                 key={idx} 
                 title={article.title}
                 description={article.description}
                 url={article.url}
              />
-            )
+            
          
-        })
+        ))}
+    </>
     );
-    
 }
