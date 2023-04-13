@@ -23,7 +23,7 @@ export default function WeatherWidget() {
     }
 
     return (
-        <Card sx={{ m: 1.5, minHeight: '300px', backgroundImage: `url(${backgroundImg})`, backgroundSize: 'cover' }}>
+        <Card sx={{ m: 1.5, minHeight: '200px', backgroundImage: `url(${backgroundImg})`, backgroundSize: 'cover' }}>
             <Container sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", position: "relative" }}>
                     <Input sx={{fontFamily: 'outfit',color: 'white'}} type="text" placeholder="Search a City" value={location} onChange={e => setLocation(e.target.value)} onKeyDown={searchLocation} />
                 <Box sx={{ mt: .5 }}>
@@ -43,7 +43,7 @@ export default function WeatherWidget() {
                             justifyContent: "space-evenly",
                             width: "100%",
                             m: 1,
-                            mt: 11,
+                            mt: 1.5,
                             p: 1,
                             borderRadius: 12,
                             backgroundColor: alpha('#fff', 0.2),

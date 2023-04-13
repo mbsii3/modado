@@ -8,7 +8,7 @@ import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from '@mui/icons-material/Delete';
 import UserNewPostsForm from "./UserNewPostForm";
 
-export default function UserPostsFeed({user}) {
+export default function UserPostsFeed() {
     const [posts, setPosts] = useState([]);
     const [editBtnPopUp, setEditBtnPopUp] = useState(false)
     const [editedPost, setEditedPost] = useState({content: ''});
