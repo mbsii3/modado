@@ -24,6 +24,12 @@
   border-radius: 5px;
 }
 
+.events-img {
+  width: 100%;
+  max-height: 300px;
+  border-radius: 5px;
+}
+
 .popup {
   position: fixed;
   top: 0;
