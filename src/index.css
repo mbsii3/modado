@@ -10,13 +10,18 @@
 }
 
 .user-img {
-  width: 25%;
+  width: 12%;
   border-radius: 50%;
 }
 
 .comment-user-img {
   float: left;
   max-width: 55px;
+}
+
+.news-img {
+  width: 100%;
+  border-radius: 5px;
 }
 
 .popup {

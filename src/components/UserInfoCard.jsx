@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function UserInfoCard({user}) {
     return (
         <>
-                <Card sx={{  m:2 , height: '200px' }}>
+                <Card sx={{  my:2 , height: '200px' }}>
                     <CardContent sx={{ textAlign: "center" }}>
                     <Link to={`users/${user._id}`} >
                         <img className="user-img" src={userImage} alt="" />

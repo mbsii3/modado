@@ -6,15 +6,15 @@ import userImage from "../images/user.jpg";
 export default function ProfileUserInfoCard({user}) {
     return (
         <>
-                <Card sx={{  m:2 }}>
-                    <CardContent>
-                        <Typography variant="h5" sx={{ fontWeight: 700, fontFamily: 'outfit' }} >
+                <Card sx={{  my:2 , height: '200px' }}>
+                    <CardContent sx={{ textAlign: "center" }}>
+                        <img className="user-img" src={userImage} alt="" />
+                        <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: 'outfit' }} >
                            {user.firstName} {user.lastName}
                         </Typography>
                         <Typography sx={{ fontSize: 12, mt: -1, fontFamily: 'outfit' }}>
                         @{user.userName}
                         </Typography>
-                        <img className="user-img" src={userImage} alt="" />
                         <Typography sx={{ 
                             fontSize: 12,
                             display: "flex",
