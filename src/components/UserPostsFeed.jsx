@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as postsService from "../utilities/posts-service";
-import NewPostsForm from "./NewPostsForm";
 import EditPopUp from "./EditPopUp";
 import userImage from "../images/user.jpg";
 import { Card, FormGroup, TextField, Typography, Button, Box, InputLabel } from "@mui/material";
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from '@mui/icons-material/Delete';
+import UserNewPostsForm from "./UserNewPostForm";
 
 export default function UserPostsFeed({user}) {
     const [posts, setPosts] = useState([]);
@@ -26,8 +26,8 @@ export default function UserPostsFeed({user}) {
     async function deletePost(id) {
         let postToDelete = await postsService.getPost(id)
         await postsService.deletePost(postToDelete);
-        const allPosts = await postsService.index();
-        setPosts(allPosts);
+        const userPosts = await postsService.userIndex(userId);
+        setPosts(userPosts);
     }
 
 
@@ -45,15 +45,15 @@ export default function UserPostsFeed({user}) {
         e.preventDefault();
         await postsService.updatePost(editedPost)
         setEditedPost({content: ''});
-        const allPosts = await postsService.index();
-        setPosts(allPosts);
+        const userPosts = await postsService.userIndex(userId);
+        setPosts(userPosts);
         setEditBtnPopUp(false);
     }
     return (
         <>
             <Card sx={{mt: 2}} >
                 <Card >
-                    <NewPostsForm setPosts={setPosts} />
+                    <UserNewPostsForm setPosts={setPosts} />
                 </Card>
             </Card>
             <Card sx={{mt: 2}}>
