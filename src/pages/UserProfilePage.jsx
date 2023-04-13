@@ -7,7 +7,7 @@ export default function UserDetailsPage({user}) {
     return (
         <Grid container spacing={0} >
         <Grid item xs></Grid>
-        <Grid item xs={6}>
+        <Grid item xs={5}>
             <ProfileUserInfoCard user={user} />
             <UserPostsFeed user={user} />
         </Grid>

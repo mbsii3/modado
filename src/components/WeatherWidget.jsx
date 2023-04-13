@@ -28,15 +28,15 @@ export default function WeatherWidget() {
                     <Input sx={{fontFamily: 'outfit',color: 'white'}} type="text" placeholder="Search a City" value={location} onChange={e => setLocation(e.target.value)} onKeyDown={searchLocation} />
                 <Box sx={{ mt: .5 }}>
                     <Box >
-                        <Typography sx={{fontFamily: 'outfit', color: 'white'}} >{data.name}</Typography>
+                        <Typography sx={{fontFamily: 'outfit', color: 'white', fontWeight: 500}} >{data.name}</Typography>
                     </Box>
                     <Box>
                         { data.main ?
-                        <Typography sx={{fontFamily: 'outfit', color: 'white'}} variant="h3" >{Math.floor(data.main.temp)}°F</Typography> : null}
+                        <Typography sx={{fontFamily: 'outfit', color: 'white', fontWeight: 500}} variant="h3" >{Math.floor(data.main.temp)}°F</Typography> : null}
                     </Box>
                     <Box>
                         { data.weather ?
-                        <Typography sx={{fontFamily: 'outfit', color: 'white'}} >{ data.weather[0].main }</Typography> : null }
+                        <Typography sx={{fontFamily: 'outfit', color: 'white', fontWeight: 500}} >{ data.weather[0].main }</Typography> : null }
                     </Box>
                 </Box>
                 <Box sx={{ display: "flex",
