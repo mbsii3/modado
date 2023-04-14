@@ -20,7 +20,7 @@ const port = process.env.PORT || 5000;
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/posts', require('./routes/api/posts'));
 
-app.get('*', function(req, res) {
+app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
