@@ -4,7 +4,7 @@ import NewsFeedItem from "./NewsFeedItem";
 export default function NewsFeed() {
     const [articles, setArticles] = useState([]);
 
-    const url = 'https://newsdata.io/api/1/news?apikey=pub_20524d4c4ef1dff5125b10f11dc4164d76cd0&country=us';
+    const url = 'https://newsdata.io/api/1/news?apikey=pub_20524d4c4ef1dff5125b10f11dc4164d76cd0&country=us&category=business';
 
     useEffect(() => {
        async function getArticles() {
