@@ -8,10 +8,11 @@ export default function NewsFeed() {
 
     useEffect(() => {
        async function getArticles() {
-        await fetch(url).then((response) => response.json())
+        const newsArticles = await fetch(url).then((response) => response.json())
         .then((data) => {
-            setArticles(data.articles)
+            return data.articles
         });
+        setArticles(newsArticles);
         }
         getArticles();
     }, []);
