@@ -3,9 +3,11 @@ import { useParams } from "react-router-dom";
 import * as postsService from "../utilities/posts-service";
 import EditPopUp from "./EditPopUp";
 import userImage from "../images/user.jpg";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { Card, FormGroup, TextField, Typography, Button, Box, InputLabel } from "@mui/material";
 import CreateIcon from '@mui/icons-material/Create';
-import DeleteIcon from '@mui/icons-material/Delete';
+import ClearIcon from '@mui/icons-material/Clear';
 import UserNewPostsForm from "./UserNewPostForm";
 
 export default function UserPostsFeed() {
@@ -13,6 +15,7 @@ export default function UserPostsFeed() {
     const [editBtnPopUp, setEditBtnPopUp] = useState(false)
     const [editedPost, setEditedPost] = useState({content: ''});
     let { userId } = useParams();
+    dayjs.extend(relativeTime)
 
     useEffect(function() {
         getUserPosts();
@@ -62,15 +65,18 @@ export default function UserPostsFeed() {
                         
                         <Card variant="outlined" sx={{m: 1, p: 1.5}} key={post._id} >
         
+                            <Box sx={{ display: "flex" , justifyContent: "right"}}>
+                                <CreateIcon sx={{cursor: "pointer", color: "blue", fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
+                                <ClearIcon sx={{cursor: "pointer", color: "red", fontSize: "2.5vmin", my: -1, mr: -1}} onClick={() => deletePost(post._id)} />
+                            </Box>
+
                             <img className="comment-user-img" src={userImage} alt="" />
                             <Typography variant="subtitle1" sx={{mt: .7, fontFamily: 'outfit'}} >{post.user.firstName} {post.user.lastName}</Typography>
                             <Typography variant="body2" sx={{mt: -1, fontFamily: 'outfit'}} >@{post.user.userName}</Typography>
-                            <Typography variant="body1" sx={{ml: 3, mt: 3, fontFamily: 'outfit'}} >{post.content}</Typography>
+                            <Typography variant="body1" sx={{ml: 3, my: 3, fontFamily: 'outfit'}} >{post.content}</Typography>
 
-                
-                            <Box sx={{ display: "flex" , justifyContent: "right"}}>
-                                <CreateIcon sx={{cursor: "pointer", color: "blue", fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
-                                <DeleteIcon sx={{cursor: "pointer", color: "red", fontSize: "2.5vmin", my: -1, mr: -1}} onClick={() => deletePost(post._id)} />
+                            <Box sx={{display: "flex", justifyContent: "right", m: -.9}}>
+                                <Typography sx={{fontSize: "11px"}}>Posted {dayjs(post.createdAt).fromNow()}</Typography>
                             </Box>
                             
                             <EditPopUp trigger={editBtnPopUp} setTrigger={setEditBtnPopUp} >
