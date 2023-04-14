@@ -6,6 +6,8 @@ import AuthPage from './AuthPage';
 import IndexPage from './IndexPage';
 import UserProfilePage from './UserProfilePage';
 
+// Comment - don't forget to remove.
+
 
 export default function App() {
   const [user, setUser] = useState(getUser());
