@@ -11,7 +11,6 @@ export default function UpcomingEvents() {
     async function getEvents() {
         await fetch(url).then((response) => response.json())
         .then((events) => {
-            console.log(events.events);
             setEvents(events.events);
         });
         }
