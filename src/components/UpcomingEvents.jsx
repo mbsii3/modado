@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 export default function UpcomingEvents() {
     const [events, setEvents] = useState([])
 
-    const url = `https://api.seatgeek.com/2/events?geoip=true&sort=score.desc&per_page=16&client_id=MzMwNTIzNjF8MTY4MTQzMjMxNi41NzEzMTM5`
+    const url = `https://api.seatgeek.com/2/events?geoip=true&sort=score.desc&per_page=5&client_id=MzMwNTIzNjF8MTY4MTQzMjMxNi41NzEzMTM5`
 
     useEffect(() => {
     async function getEvents() {
@@ -19,7 +19,7 @@ export default function UpcomingEvents() {
 
     return (
         <>
-        <Typography sx={{textAlign: "center", fontFamily: "outfit", fontWeight: 900}}>Upcoming Events Near You</Typography>
+        <Typography sx={{ m: 2, textAlign: "center", fontFamily: "outfit", fontWeight: 900}}>Upcoming Events Near You</Typography>
         {  events.map((event) => (
             
                 < UpcomingEventsItem 

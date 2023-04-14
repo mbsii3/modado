@@ -4,13 +4,14 @@ import NewsFeedItem from "./NewsFeedItem";
 export default function NewsFeed() {
     const [articles, setArticles] = useState([]);
 
-    const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c3f7bf22455049f2970a93086914da05`
+    const url = 'https://newsdata.io/api/1/news?apikey=pub_20524d4c4ef1dff5125b10f11dc4164d76cd0&country=us';
 
     useEffect(() => {
        async function getArticles() {
-        const newsArticles = await fetch(url).then((response) => response.json())
+        const newsArticles = await fetch(url)
+        .then((response) => response.json())
         .then((data) => {
-            return data.articles
+            return data.results
         });
         setArticles(newsArticles);
         }
@@ -28,8 +29,8 @@ export default function NewsFeed() {
             <NewsFeedItem 
                 key={idx} 
                 title={article.title}
-                url={article.url}
-                urlToImage={article.urlToImage}
+                url={article.link}
+                description={article.description}
              />
             
          

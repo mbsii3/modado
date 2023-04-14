@@ -56,8 +56,8 @@ export default function AllPostsFeed({user}) {
                     <NewPostsForm setPosts={setPosts} />
                 </Card>
             </Card>
-        <Card sx={{ mt: 1.5, backgroundColor: "silver" }}>
-            <Card sx={{m: 1.5, p: 1}}>
+        
+            <Card sx={{mt: 2, p: 1}}>
             
                     { posts.map((post) => (
                         
@@ -87,7 +87,7 @@ export default function AllPostsFeed({user}) {
                         
                     ))}
             </Card>
-        </Card>      
+             
         </>
     );
 }

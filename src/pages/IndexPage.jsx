@@ -9,23 +9,20 @@ export default function IndexPage({ user }) {
    return (
     <Grid container spacing={1} >
         <Grid item xs>
-        <Card sx={{m: 2, backgroundColor: "silver"}}>
-            <Card sx={{m: 2}}>
-                <WeatherWidget />
-            </Card>
+            
             <UpcomingEvents />
-        </Card>
-        
+       
         </Grid>
         <Grid item xs={5}>
             <UserInfoCard user={user} />
             <AllPostsFeed user={user} />
         </Grid>
         <Grid item xs>
-            <Card sx={{m: 2, backgroundColor: "silver"}}>
-                <NewsFeed />
+            <Card sx={{m: 2}}>
+                <WeatherWidget />
             </Card>
             
+                <NewsFeed />
               
         </Grid>
     </Grid>
