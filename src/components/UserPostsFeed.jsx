@@ -76,8 +76,8 @@ export default function UserPostsFeed() {
                             <Typography variant="body1" sx={{ml: 3, my: 3, fontFamily: 'outfit'}} >{post.content}</Typography>
 
                             <Box sx={{display: "flex", justifyContent: "space-between", mx: -.9, mb: -1.5}}>
-                                <Typography sx={{fontSize: "11px"}}> Posted {dayjs(post.createdAt).fromNow()}</Typography>
                                 <Typography sx={{fontSize: "11px"}}><Link to={`/posts/${post._id}`} >Leave a Comment</Link></Typography>
+                                <Typography sx={{fontSize: "11px"}}> Posted {dayjs(post.createdAt).fromNow()}</Typography>
                             </Box>
                             
                             <EditPopUp trigger={editBtnPopUp} setTrigger={setEditBtnPopUp} >

@@ -83,8 +83,8 @@ export default function AllPostsFeed({user}) {
                             
 
                             <Box sx={{display: "flex", justifyContent: "space-between", mx: -.9, mb: -1.5}}>
-                                <Typography sx={{fontSize: "11px"}}> Posted {dayjs(post.createdAt).fromNow()}</Typography>
                                 <Typography sx={{fontSize: "11px"}}><Link to={`/posts/${post._id}`} >Leave a Comment</Link></Typography>
+                                <Typography sx={{fontSize: "11px"}}> Posted {dayjs(post.createdAt).fromNow()}</Typography>
                             </Box>
 
                             <EditPopUp trigger={editBtnPopUp} setTrigger={setEditBtnPopUp} >

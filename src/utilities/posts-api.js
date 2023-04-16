@@ -30,5 +30,5 @@ export async function createComment(commentData, postId) {
 }
 
 export async function getComments(postId) {
-    return await sendRequest(`${BASE_URL}/${postId}/comment/all`)
+    return await sendRequest(`${BASE_URL}/${postId}/comments/all`)
 }
