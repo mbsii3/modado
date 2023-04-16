@@ -19,7 +19,7 @@ export default function UpcomingEvents() {
 
     return (
         <>
-        <Typography sx={{ m: 2, textAlign: "center", fontFamily: "outfit", fontWeight: 900}}>Upcoming Events Near You</Typography>
+        <Typography sx={{ m: 2, textAlign: "center", fontWeight: 900}}>Upcoming Events Near You</Typography>
         {  events.map((event) => (
             
                 < UpcomingEventsItem 

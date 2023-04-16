@@ -6,14 +6,21 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
 export default function PostCommentsPage() {
+    const [post, setPost] = useState('');
     const [comment, setComment] = useState({ content: '' });
     const [comments, setComments] = useState([]);
     let {postId} = useParams();
     dayjs.extend(relativeTime)
 
     useEffect(function() {
-        getComments()
+        getComments();
+        getPost();
     }, []);
+
+    async function getPost() {
+        const post = await postsService.getPost(postId);
+        setPost(post);
+    }
 
     async function getComments() {
         const comments = await postsService.getComments(postId);
@@ -38,14 +45,19 @@ export default function PostCommentsPage() {
         <Grid container spacing={0} >
         <Grid item xs></Grid>
         <Grid item xs={5}>
+        <Card sx={{mt: 2, p: 1}}>
+            <Card variant="outlined" sx={{m: 1, p: 1.5}} >
+                <Typography variant="h5">{post.content}</Typography>
+            </Card>
+        </Card>
             
         <Card sx={{ mt: 2 }}>
             <Box sx={{mt: 1, p: 1}}> 
                 <form onSubmit={handleSubmit}>
                 
                 <FormGroup>
-                    <TextField sx={{fontFamily: 'outfit'}} id="outlined-basic" label="Leave a Comment" variant="outlined" name="content" value={comment.content} onChange={handleChange} />
-                    <Button type="submit" sx={{fontFamily: 'outfit'}} >Submit</Button>
+                    <TextField id="outlined-basic" label="Leave a Comment" variant="outlined" name="content" value={comment.content} onChange={handleChange} />
+                    <Button type="submit" >Submit</Button>
                 </FormGroup>
                 
                 </form>

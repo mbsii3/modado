@@ -1,7 +1,7 @@
-import { NavLink } from "react-router-dom";
 import * as userService from "../utilities/users-service";
-// import { Link } from "react-router-dom";
 import { AppBar, Container , Toolbar, Typography, Button } from "@mui/material";
+import Switch from '@mui/material/Switch';
+import { Link } from "@mui/material";
 
 
 
@@ -19,10 +19,12 @@ export default function NavBar({user, setUser}) {
                 <Toolbar>
                     <Typography variant="h4" component="div" sx={{ flexGrow: 1, fontFamily: 'outfit' }}>
                     
-                        <NavLink to='/' >Modado</NavLink>
+                       
+                       <Link href="/" underline="none" sx={{ color:"white", fontWeight: "700"}}>Modado</Link>
                     
                     </Typography>
-                    <Button color="inherit" sx={{fontFamily: 'outfit'}} onClick={handleLogOut}>Log Out</Button>
+                    <Switch size="small" sx={{mr: 1}} />
+                    <Button color="inherit" variant="outlined" onClick={handleLogOut}>Log Out</Button>
                     
                     
                 </Toolbar>

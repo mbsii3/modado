@@ -22,7 +22,7 @@ export default function IndexPage({ user }) {
                 <WeatherWidget />
             </Card>
             
-                <NewsFeed />
+                {/* <NewsFeed /> */}
               
         </Grid>
     </Grid>

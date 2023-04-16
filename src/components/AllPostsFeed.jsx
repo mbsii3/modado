@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import * as postsService from "../utilities/posts-service";
 import NewPostsForm from "./NewPostsForm";
 import EditPopUp from "./EditPopUp";
 import userImage from "../images/user.jpg";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Card, FormGroup, TextField, Typography, Button, Box, InputLabel } from "@mui/material";
+import { Card, FormGroup, TextField, Typography, Button, Link, Box, InputLabel } from "@mui/material";
 import CreateIcon from '@mui/icons-material/Create';
 import ClearIcon from '@mui/icons-material/Clear';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
 
 export default function AllPostsFeed({user}) {
@@ -70,8 +70,9 @@ export default function AllPostsFeed({user}) {
                             
                             { user._id === post.user._id ?
                             <Box sx={{ display: "flex", justifyContent: "right"}}>
-                                <CreateIcon sx={{cursor: "pointer", color: "blue", fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
-                                <ClearIcon sx={{cursor: "pointer", color: "red", fontSize: "2.5vmin", my: -1, mr: -1}} onClick={() => deletePost(post._id)} />
+                                <Link href={`/posts/${post._id}`}><ChatBubbleOutlineIcon sx={{cursor: "pointer", color: "#0D47A1", fontSize: "2.5vmin", mt: -.7, mr: .5}}></ChatBubbleOutlineIcon></Link>
+                                <CreateIcon sx={{cursor: "pointer", color: "#0D47A1", fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
+                                <ClearIcon sx={{cursor: "pointer", color: "red", fontSize: "2.6vmin", my: -1, mr: -1}} onClick={() => deletePost(post._id)} />
                             </Box>
                             : <Box sx={{mt: 1}}></Box>}
         
@@ -80,10 +81,8 @@ export default function AllPostsFeed({user}) {
                             <Typography variant="body2" sx={{mt: -1, fontFamily: 'outfit'}} >@{post.user.userName}</Typography>
                             <Typography variant="body1" sx={{mx: 3, my: 4.5, fontFamily: 'outfit'}} >{post.content}</Typography>
                             
-                            
 
-                            <Box sx={{display: "flex", justifyContent: "space-between", mx: -.9, mb: -1.5}}>
-                                <Typography sx={{fontSize: "11px"}}><Link to={`/posts/${post._id}`} >Leave a Comment</Link></Typography>
+                            <Box sx={{display: "flex", justifyContent: "right", mx: -.9, mb: -1.5}}>
                                 <Typography sx={{fontSize: "11px"}}> Posted {dayjs(post.createdAt).fromNow()}</Typography>
                             </Box>
 

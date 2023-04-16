@@ -66,8 +66,8 @@ export default function UserPostsFeed() {
                         <Card variant="outlined" sx={{m: 1, p: 1.5}} key={post._id} >
         
                             <Box sx={{ display: "flex" , justifyContent: "right"}}>
-                                <CreateIcon sx={{cursor: "pointer", color: "blue", fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
-                                <ClearIcon sx={{cursor: "pointer", color: "red", fontSize: "2.5vmin", my: -1, mr: -1}} onClick={() => deletePost(post._id)} />
+                                <CreateIcon sx={{cursor: "pointer", color: "#0D47A1", fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
+                                <ClearIcon sx={{cursor: "pointer", color: "red", fontSize: "2.6vmin", my: -1, mr: -1}} onClick={() => deletePost(post._id)} />
                             </Box>
 
                             <img className="comment-user-img" src={userImage} alt="" />
@@ -75,8 +75,7 @@ export default function UserPostsFeed() {
                             <Typography variant="body2" sx={{mt: -1, fontFamily: 'outfit'}} >@{post.user.userName}</Typography>
                             <Typography variant="body1" sx={{ml: 3, my: 3, fontFamily: 'outfit'}} >{post.content}</Typography>
 
-                            <Box sx={{display: "flex", justifyContent: "space-between", mx: -.9, mb: -1.5}}>
-                                <Typography sx={{fontSize: "11px"}}><Link to={`/posts/${post._id}`} >Leave a Comment</Link></Typography>
+                            <Box sx={{display: "flex", justifyContent: "right", mx: -.9, mb: -1.5}}>
                                 <Typography sx={{fontSize: "11px"}}> Posted {dayjs(post.createdAt).fromNow()}</Typography>
                             </Box>
                             

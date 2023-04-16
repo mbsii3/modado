@@ -25,10 +25,10 @@ export default function WeatherWidget() {
     return (
         <Card sx={{ m: 1.5, minHeight: '200px', backgroundImage: `url(${backgroundImg})`, backgroundSize: 'cover' }}>
             <Container sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", position: "relative" }}>
-                    <Input sx={{fontFamily: 'outfit',color: 'white'}} type="text" placeholder="Search a City" value={location} onChange={e => setLocation(e.target.value)} onKeyDown={searchLocation} />
+                    <Input sx={{color: 'white'}} type="text" placeholder="Search a City" value={location} onChange={e => setLocation(e.target.value)} onKeyDown={searchLocation} />
                 <Box sx={{ mt: .5 }}>
                     <Box >
-                        <Typography sx={{fontFamily: 'outfit', color: 'white', fontWeight: 500}} >{data.name}</Typography>
+                        <Typography sx={{ color: 'white', fontWeight: 500}} >{data.name}</Typography>
                     </Box>
                     <Box>
                         { data.main ?
