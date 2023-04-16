@@ -8,7 +8,7 @@ export default function UpcomingEventsItem({ title, date, venue, url, image  }) 
     <>
     
         <Box sx={{m: 1.5}}>
-            <Card sx={{ p: 1.5 }}>
+            <Card sx={{ p: 2 }}>
                 <img className="events-img" src={image} alt="" />
                 <Typography sx={{mb: 1, fontFamily: 'outfit'}} ><a href={url} target="_blank" rel="noreferrer">{title}</a></Typography>
                 <Typography>{dayjs(date).format('LL')}</Typography>

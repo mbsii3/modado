@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as postsService from "../utilities/posts-service";
-import { Box, FormGroup, TextField, Button } from "@mui/material";
+import { Box, FormGroup, TextField, Button, Grid } from "@mui/material";
 
 export default function PostCommentsPage() {
     const [comment, setComment] = useState({ content: '' });
@@ -30,8 +30,12 @@ export default function PostCommentsPage() {
     }
 
     return (
-            <>
-           
+        <>
+
+        <Grid container spacing={0} >
+        <Grid item xs></Grid>
+        <Grid item xs={5}>
+            
         <Box sx={{mt: 1, p: 1}}> 
         <form onSubmit={handleSubmit}>
         
@@ -41,12 +45,16 @@ export default function PostCommentsPage() {
         </FormGroup>
         
         </form>
-        </Box>  
-
+        </Box> 
 
         { comments.map((comment) => (
             <h1 key={comment._id}>{comment.content}</h1>
         )) }
+
+        </Grid>
+        <Grid item xs></Grid>
+        </Grid>
+           
 
         </>
         
