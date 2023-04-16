@@ -11,10 +11,10 @@ export default function UserInfoCard({user}) {
                     <CardContent sx={{ textAlign: "center" }}>
                     <Link href={`users/${user._id}`} underline="none" >
                         <img className="user-img" src={userImage} alt="" />
-                        <Typography variant="h6" sx={{ fontWeight: 700, color: "black" }} >
+                        <Typography variant="h6" sx={{ fontWeight: 700 }} >
                            {user.firstName} {user.lastName}
                         </Typography>
-                        <Typography sx={{ fontSize: 12, mt: -1, color: "black" }}>
+                        <Typography sx={{ fontSize: 12, mt: -1 }}>
                         @{user.userName}
                         </Typography>
                         </Link>

@@ -16,6 +16,8 @@
 
 .comment-user-img {
   float: left;
+  margin-right: .2vmin;
+  border-radius: 50%;
   max-width: 55px;
 }
 

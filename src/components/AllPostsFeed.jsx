@@ -5,7 +5,7 @@ import EditPopUp from "./EditPopUp";
 import userImage from "../images/user.jpg";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Card, FormGroup, TextField, Typography, Button, Link, Box, InputLabel } from "@mui/material";
+import { Card, FormGroup, TextField, Typography, Button, Link, Box, InputLabel, Paper } from "@mui/material";
 import CreateIcon from '@mui/icons-material/Create';
 import ClearIcon from '@mui/icons-material/Clear';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -70,8 +70,8 @@ export default function AllPostsFeed({user}) {
                             
                             { user._id === post.user._id ?
                             <Box sx={{ display: "flex", justifyContent: "right"}}>
-                                <Link href={`/posts/${post._id}`}><ChatBubbleOutlineIcon sx={{cursor: "pointer", color: "#0D47A1", fontSize: "2.5vmin", mt: -.7, mr: .5}}></ChatBubbleOutlineIcon></Link>
-                                <CreateIcon sx={{cursor: "pointer", color: "#0D47A1", fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
+                                <Link href={`/posts/${post._id}`}><ChatBubbleOutlineIcon sx={{cursor: "pointer", color: 'primary.main', fontSize: "2.5vmin", mt: -.7, mr: .5}}></ChatBubbleOutlineIcon></Link>
+                                <CreateIcon sx={{cursor: "pointer", color: 'primary.main', fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
                                 <ClearIcon sx={{cursor: "pointer", color: "red", fontSize: "2.6vmin", my: -1, mr: -1}} onClick={() => deletePost(post._id)} />
                             </Box>
                             : <Box sx={{mt: 1}}></Box>}
@@ -87,13 +87,15 @@ export default function AllPostsFeed({user}) {
                             </Box>
 
                             <EditPopUp trigger={editBtnPopUp} setTrigger={setEditBtnPopUp} >
+                                <Paper sx={{p: 5}}>
                                 <form onSubmit={handleSubmit} >
                                     <FormGroup>
-                                        <InputLabel sx={{fontFamily: 'outfit'}} >Changed your mind?</InputLabel>
+                                        <InputLabel >Changed your mind?</InputLabel>
                                         <TextField id="outlined-basic" variant="outlined"  name="content" value={editedPost.content}  onChange={handleChange} />
-                                        <Button type="submit" sx={{fontFamily: 'outfit'}}>Edit</Button>
+                                        <Button type="submit">Edit</Button>
                                     </FormGroup>
                                 </form>
+                                </Paper>
                             </EditPopUp>
                         </Card>
                         

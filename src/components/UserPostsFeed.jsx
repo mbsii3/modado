@@ -5,7 +5,7 @@ import EditPopUp from "./EditPopUp";
 import userImage from "../images/user.jpg";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Card, FormGroup, TextField, Typography, Button, Box, InputLabel } from "@mui/material";
+import { Card, FormGroup, TextField, Typography, Button, Box, Paper, InputLabel } from "@mui/material";
 import CreateIcon from '@mui/icons-material/Create';
 import ClearIcon from '@mui/icons-material/Clear';
 import UserNewPostsForm from "./UserNewPostForm";
@@ -80,6 +80,7 @@ export default function UserPostsFeed() {
                             </Box>
                             
                             <EditPopUp trigger={editBtnPopUp} setTrigger={setEditBtnPopUp} >
+                            <Paper sx={{p: 5}}>
                                 <form onSubmit={handleSubmit} >
                                     <FormGroup>
                                         <InputLabel sx={{fontFamily: 'outfit'}} >Changed your mind?</InputLabel>
@@ -87,6 +88,7 @@ export default function UserPostsFeed() {
                                         <Button type="submit" sx={{fontFamily: 'outfit'}}>Edit</Button>
                                     </FormGroup>
                                 </form>
+                                </Paper>
                             </EditPopUp>
                         </Card>
                         

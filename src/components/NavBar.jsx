@@ -6,7 +6,7 @@ import { Link } from "@mui/material";
 
 
 
-export default function NavBar({user, setUser}) {
+export default function NavBar({setUser, check, change}) {
 
     function handleLogOut() {
         userService.logOut();
@@ -23,7 +23,7 @@ export default function NavBar({user, setUser}) {
                        <Link href="/" underline="none" sx={{ color:"white", fontWeight: "700"}}>Modado</Link>
                     
                     </Typography>
-                    <Switch size="small" sx={{mr: 1}} />
+                    <Switch size="small" color="default" sx={{mr: 1}} onChange={change} checked={check} />
                     <Button color="inherit" variant="outlined" onClick={handleLogOut}>Log Out</Button>
                     
                     

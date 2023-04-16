@@ -6,29 +6,28 @@ import AuthPage from './AuthPage';
 import IndexPage from './IndexPage';
 import UserProfilePage from './UserProfilePage';
 import PostCommentsPage from './PostCommentsPage';
-import { createTheme, ThemeProvider } from '@mui/material';
-
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#0D47A1'
-    }
-  },
-  typography: {
-    fontFamily: 'Outfit',
-  }
-})
+import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [darkMode, setDarkMode] = useState(false);
+  const darkTheme = createTheme({
+    palette: {
+      mode: darkMode ? 'light' : 'dark'
+    },
+    typography: {
+      fontFamily: "Outfit"
+    }
+  });
+  
   return (
     <main className="App">
       { user ?
         <>
-        <ThemeProvider theme={theme}>
-          <NavBar user={user} setUser={setUser} />
+        <ThemeProvider theme={darkTheme}>
+          <CssBaseline />
+          <NavBar setUser={setUser} check={darkMode} change={() => setDarkMode(!darkMode)}   />
           <Routes>
             <Route index element={<IndexPage user={user} />} />
             <Route path='/users/:userId' element={<UserProfilePage user={user} />} />
