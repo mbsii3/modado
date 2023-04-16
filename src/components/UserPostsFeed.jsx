@@ -71,9 +71,10 @@ export default function UserPostsFeed() {
                             </Box>
 
                             <img className="comment-user-img" src={userImage} alt="" />
-                            <Typography variant="subtitle1" sx={{mt: .7, fontFamily: 'outfit'}} >{post.user.firstName} {post.user.lastName}</Typography>
-                            <Typography variant="body2" sx={{mt: -1, fontFamily: 'outfit'}} >@{post.user.userName}</Typography>
-                            <Typography variant="body1" sx={{ml: 3, my: 3, fontFamily: 'outfit'}} >{post.content}</Typography>
+                            <Typography variant="subtitle1" >{post.user.firstName} {post.user.lastName}</Typography>
+                            <Typography variant="body2" sx={{mt: -1 }} >@{post.user.userName}</Typography>
+                            <Typography variant="body2" sx={{mt: -.4, fontSize: "12px"}} >{post.user.location}</Typography>
+                            <Typography variant="body1" sx={{ml: 3, my: 3}} >{post.content}</Typography>
 
                             <Box sx={{display: "flex", justifyContent: "right", mx: -.9, mb: -1.5}}>
                                 <Typography sx={{fontSize: "11px"}}> Posted {dayjs(post.createdAt).fromNow()}</Typography>
