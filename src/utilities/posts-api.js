@@ -24,3 +24,11 @@ export async function createPost(postData) {
 export async function deletePost(postObj) {
     return await sendRequest(`${BASE_URL}/delete`, 'DELETE', postObj);
 }
+
+export async function createComment(commentData, postId) {
+    return await sendRequest(`${BASE_URL}/${postId}/comment`, 'POST', commentData);
+}
+
+export async function getComments(postId) {
+    return await sendRequest(`${BASE_URL}/${postId}/comment/all`)
+}

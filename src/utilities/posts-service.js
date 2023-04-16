@@ -23,3 +23,11 @@ export async function updatePost(postObj) {
 export async function deletePost(postObj) {
     return await postsAPI.deletePost(postObj);
 }
+
+export async function createComment(commentData, postId) {
+    return await postsAPI.createComment(commentData, postId);
+}
+
+export async function getComments(postId) {
+    return await postsAPI.getComments(postId);
+}

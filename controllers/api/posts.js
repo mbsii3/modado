@@ -7,7 +7,9 @@ module.exports = {
     create,
     getPost,
     updatePost,
-    delete: deletePost
+    delete: deletePost, 
+    createComment,
+    getComments
 }
 
 async function index(req, res) {
@@ -45,8 +47,31 @@ async function create(req, res) {
     try {
         req.body.user = req.user._id
         const newPost = await Post.create(req.body);
-        console.log(newPost);
         res.json(newPost);
+    } catch (err) {
+        res.json(400)
+    }
+}
+
+async function getComments(req, res) {
+    try {
+        const post = await Post.findById(req.params.postId)
+        .populate( 'comments', 'content');
+        res.json(post.comments);
+        
+    } catch (err) {
+        res.json(400)
+    }
+}
+
+async function createComment(req, res) {
+    try {
+        const post = await Post.findById(req.params.postId)
+        req.body.user = req.user._id
+        post.comments.unshift(req.body);
+        post.save();
+        res.json(post);
+        
     } catch (err) {
         res.json(400)
     }

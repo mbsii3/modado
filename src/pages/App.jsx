@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar';
 import AuthPage from './AuthPage';
 import IndexPage from './IndexPage';
 import UserProfilePage from './UserProfilePage';
+import PostCommentsPage from './PostCommentsPage';
 
 // Comment - don't forget to remove.
 
@@ -19,6 +20,7 @@ export default function App() {
           <Routes>
             <Route index element={<IndexPage user={user} />} />
             <Route path='/users/:userId' element={<UserProfilePage user={user} />} />
+            <Route path='/posts/:postId' element={<PostCommentsPage user={user} />} />
           </Routes>
           
           

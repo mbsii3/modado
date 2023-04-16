@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import * as postsService from "../utilities/posts-service";
 import NewPostsForm from "./NewPostsForm";
 import EditPopUp from "./EditPopUp";
@@ -79,6 +80,7 @@ export default function AllPostsFeed({user}) {
                             <Typography variant="body2" sx={{mt: -1, fontFamily: 'outfit'}} >@{post.user.userName}</Typography>
                             <Typography variant="body1" sx={{mx: 3, mt: 3, mb: 2, fontFamily: 'outfit'}} >{post.content}</Typography>
 
+                            <Link to={`/posts/${post._id}`} ><Button>Comments</Button></Link>
                             
                             <Box sx={{display: "flex", justifyContent: "right", m: -.9}}>
                                 <Typography sx={{fontSize: "11px"}}>Posted {dayjs(post.createdAt).fromNow()}</Typography>
