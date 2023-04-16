@@ -66,7 +66,7 @@ export default function UserPostsFeed() {
                         <Card variant="outlined" sx={{m: 1, p: 1.5}} key={post._id} >
         
                             <Box sx={{ display: "flex" , justifyContent: "right"}}>
-                                <CreateIcon sx={{cursor: "pointer", color: "#0D47A1", fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
+                                <CreateIcon sx={{cursor: "pointer", color: "primary.main", fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
                                 <ClearIcon sx={{cursor: "pointer", color: "red", fontSize: "2.6vmin", my: -1, mr: -1}} onClick={() => deletePost(post._id)} />
                             </Box>
 

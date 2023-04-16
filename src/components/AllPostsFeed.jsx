@@ -70,7 +70,6 @@ export default function AllPostsFeed({user}) {
                             
                             { user._id === post.user._id ?
                             <Box sx={{ display: "flex", justifyContent: "right"}}>
-                                <Link href={`/posts/${post._id}`}><ChatBubbleOutlineIcon sx={{cursor: "pointer", color: 'primary.main', fontSize: "2.5vmin", mt: -.7, mr: .5}}></ChatBubbleOutlineIcon></Link>
                                 <CreateIcon sx={{cursor: "pointer", color: 'primary.main', fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
                                 <ClearIcon sx={{cursor: "pointer", color: "red", fontSize: "2.6vmin", my: -1, mr: -1}} onClick={() => deletePost(post._id)} />
                             </Box>
@@ -82,7 +81,8 @@ export default function AllPostsFeed({user}) {
                             <Typography variant="body1" sx={{mx: 3, my: 4.5, fontFamily: 'outfit'}} >{post.content}</Typography>
                             
 
-                            <Box sx={{display: "flex", justifyContent: "right", mx: -.9, mb: -1.5}}>
+                            <Box sx={{display: "flex", justifyContent: "space-between", mx: -.9, mb: -1.5}}>
+                                <Link href={`/posts/${post._id}`}><ChatBubbleOutlineIcon sx={{cursor: "pointer", color: 'primary.main', fontSize: "2.5vmin", mt: -.7, mr: .5}}></ChatBubbleOutlineIcon></Link>
                                 <Typography sx={{fontSize: "11px"}}> Posted {dayjs(post.createdAt).fromNow()}</Typography>
                             </Box>
 
