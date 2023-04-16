@@ -25,42 +25,46 @@ export default function WeatherWidget() {
     return (
         <Card sx={{ m: 1.5, minHeight: '200px', backgroundImage: `url(${backgroundImg})`, backgroundSize: 'cover' }}>
             <Container sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", position: "relative" }}>
-                    <Input sx={{color: 'white'}} type="text" placeholder="Search a City" value={location} onChange={e => setLocation(e.target.value)} onKeyDown={searchLocation} />
+                
+                <Input sx={{color: '#fff'}} type="text" placeholder="Search a City" value={location} onChange={e => setLocation(e.target.value)} onKeyDown={searchLocation} />
+                
                 <Box sx={{ mt: .5 }}>
                     <Box >
-                        <Typography sx={{ color: 'white', fontWeight: 500}} >{data.name}</Typography>
+                        <Typography sx={{ color: '#fff', fontWeight: 500}} >{data.name}</Typography>
                     </Box>
                     <Box>
                         { data.main ?
-                        <Typography sx={{fontFamily: 'outfit', color: 'white', fontWeight: 500}} variant="h3" >{Math.floor(data.main.temp)}°F</Typography> : null}
+                        <Typography sx={{ color: '#fff', fontWeight: 500}} variant="h3" >{Math.floor(data.main.temp)}°F</Typography> : null}
                     </Box>
                     <Box>
                         { data.weather ?
-                        <Typography sx={{fontFamily: 'outfit', color: 'white', fontWeight: 500}} >{ data.weather[0].main }</Typography> : null }
+                        <Typography sx={{ color: '#fff', fontWeight: 500}} >{ data.weather[0].main }</Typography> : null }
                     </Box>
                 </Box>
                 <Box sx={{ display: "flex",
                             justifyContent: "space-evenly",
                             width: "100%",
-                            m: 1,
-                            mt: 1.5,
-                            p: 1,
+                            m: "auto",
+                            mt: 2.7,
                             borderRadius: 12,
                             backgroundColor: alpha('#fff', 0.2),
                             bottom: "100%"
                             
                             }}>
-                    <Box>
+                    <Box sx={{ textAlign: "center" }}>
                         { data.main ? 
-                        <Typography sx={{fontFamily: 'outfit', color: 'white'}} >Feels like {Math.floor(data.main.feels_like)}°F</Typography>: null }
+                        <Typography sx={{ mb: -1, fontSize: "13px", color: '#fff' }} >{Math.floor(data.main.feels_like)}°F</Typography>: null }
+                        <Box ><Typography sx={{ color: '#fff' }}>Feels Like</Typography></Box>
                     </Box>
-                    <Box>
+                    <Box sx={{ textAlign: "center" }}>
                         { data.main ? 
-                        <Typography sx={{fontFamily: 'outfit', color: 'white'}} >Humidity {data.main.humidity}%</Typography>: null}
+                        <Typography sx={{ mb: -1, fontSize: "13px", color: '#fff' }} >{data.main.humidity}%</Typography>: null}
+                        <Box ><Typography sx={{ color: '#fff' }}>Humidity</Typography></Box>
                     </Box>
-                    <Box>
+                    <Box sx={{ textAlign: "center" }}>
                         { data.wind ?
-                        <Typography sx={{fontFamily: 'outfit', color: 'white'}}  >Wind {Math.floor(data.wind.speed)} MPH</Typography>: null}
+                        <Typography sx={{ mb: -1, fontSize: "13px", color: '#fff' }} >{Math.floor(data.wind.speed)} MPH</Typography>: null}
+                        <Box ><Typography sx={{ color: '#fff' }}>Wind</Typography></Box>
                     </Box>
                 </Box>  
             </Container>
