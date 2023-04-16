@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as usersService from '../utilities/users-service';
+import { Box, Button, Container, FormGroup, FormLabel, Input, Typography } from '@mui/material';
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -29,17 +30,22 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div>
-      <div className="form-container">
+    <Container>
+      <Box sx={{ maxWidth: '500px', display: "flex", flexDirection: "column", justifyContent: "center", m: "auto", mt: 35 }}>
+      <Typography variant='h4' sx={{ textAlign: "center", mb: 3 }}>Sign in to Modado</Typography>
         <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+        <FormGroup>
+          <FormLabel>Email</FormLabel>
+          <Input sx={{ mb: 2 }} type="text" name="email" value={credentials.email} onChange={handleChange} required />
+          <FormLabel>Password</FormLabel>
+          <Input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+          </FormGroup>
+          <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center" , alignItems: "center" }}>
+          <Button sx={{ mt: 2 }} variant='outlined' type="submit">LOG IN</Button>
+          </Box>
         </form>
-      </div>
-      <p className="error-message">&nbsp;{error}</p>
-    </div>
+      </Box>
+      <Typography>&nbsp;{error}</Typography>
+    </Container>
   );
 }

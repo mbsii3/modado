@@ -22,11 +22,11 @@ export default function App() {
   });
   
   return (
+    <ThemeProvider theme={darkTheme}>
+    <CssBaseline />
     <main className="App">
       { user ?
         <>
-        <ThemeProvider theme={darkTheme}>
-          <CssBaseline />
           <NavBar setUser={setUser} check={darkMode} change={() => setDarkMode(!darkMode)}   />
           <Routes>
             <Route index element={<IndexPage user={user} />} />
@@ -35,11 +35,11 @@ export default function App() {
           </Routes>
            
           
-        </ThemeProvider> 
         </>
         :
         <AuthPage setUser={setUser} />
       }
     </main>
+    </ThemeProvider> 
   );
 }
