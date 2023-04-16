@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import NewsFeedItem from "./NewsFeedItem";
+import { Typography } from "@mui/material";
 
 export default function NewsFeed() {
     const [articles, setArticles] = useState([]);
@@ -23,6 +24,7 @@ export default function NewsFeed() {
     
     return (
        <> 
+       <Typography sx={{ m: 2, textAlign: "center", fontFamily: "outfit", fontWeight: 900}}>Today's Top News Headlines</Typography>
        { articles.map((article, idx) => (
         
             

@@ -69,7 +69,7 @@ export default function AllPostsFeed({user}) {
                         <Card variant="outlined" sx={{m: 1, p: 1.5}} key={post._id} >
                             
                             { user._id === post.user._id ?
-                            <Box sx={{ display: "flex" , justifyContent: "right"}}>
+                            <Box sx={{ display: "flex", justifyContent: "right"}}>
                                 <CreateIcon sx={{cursor: "pointer", color: "blue", fontSize: "2.5vmin", my: -1}} onClick={() => editPost(post._id)} />
                                 <ClearIcon sx={{cursor: "pointer", color: "red", fontSize: "2.5vmin", my: -1, mr: -1}} onClick={() => deletePost(post._id)} />
                             </Box>
@@ -78,12 +78,13 @@ export default function AllPostsFeed({user}) {
                             <img className="comment-user-img" src={userImage} alt="" />
                             <Typography variant="subtitle1" sx={{mt: .7, fontFamily: 'outfit'}} >{post.user.firstName} {post.user.lastName}</Typography>
                             <Typography variant="body2" sx={{mt: -1, fontFamily: 'outfit'}} >@{post.user.userName}</Typography>
-                            <Typography variant="body1" sx={{mx: 3, mt: 3, mb: 2, fontFamily: 'outfit'}} >{post.content}</Typography>
-
-                            <Link to={`/posts/${post._id}`} ><Button>Comments</Button></Link>
+                            <Typography variant="body1" sx={{mx: 3, my: 4.5, fontFamily: 'outfit'}} >{post.content}</Typography>
                             
-                            <Box sx={{display: "flex", justifyContent: "right", m: -.9}}>
-                                <Typography sx={{fontSize: "11px"}}>Posted {dayjs(post.createdAt).fromNow()}</Typography>
+                            
+
+                            <Box sx={{display: "flex", justifyContent: "space-between", mx: -1, mb: -1.5}}>
+                                <Typography sx={{fontSize: "11px"}}> Posted {dayjs(post.createdAt).fromNow()}</Typography>
+                                <Typography sx={{fontSize: "11px"}}><Link to={`/posts/${post._id}`} >Leave a Comment</Link></Typography>
                             </Box>
 
                             <EditPopUp trigger={editBtnPopUp} setTrigger={setEditBtnPopUp} >

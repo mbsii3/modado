@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import * as postsService from "../utilities/posts-service";
 import EditPopUp from "./EditPopUp";
 import userImage from "../images/user.jpg";
@@ -75,8 +75,9 @@ export default function UserPostsFeed() {
                             <Typography variant="body2" sx={{mt: -1, fontFamily: 'outfit'}} >@{post.user.userName}</Typography>
                             <Typography variant="body1" sx={{ml: 3, my: 3, fontFamily: 'outfit'}} >{post.content}</Typography>
 
-                            <Box sx={{display: "flex", justifyContent: "right", m: -.9}}>
-                                <Typography sx={{fontSize: "11px"}}>Posted {dayjs(post.createdAt).fromNow()}</Typography>
+                            <Box sx={{display: "flex", justifyContent: "space-between", mx: -1, mb: -1.5}}>
+                                <Typography sx={{fontSize: "11px"}}> Posted {dayjs(post.createdAt).fromNow()}</Typography>
+                                <Typography sx={{fontSize: "11px"}}><Link to={`/posts/${post._id}`} >Leave a Comment</Link></Typography>
                             </Box>
                             
                             <EditPopUp trigger={editBtnPopUp} setTrigger={setEditBtnPopUp} >
