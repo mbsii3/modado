@@ -43,7 +43,7 @@ export default class SignUpForm extends Component {
               <Card sx={{ p: 3 }}>
               <Typography sx={{ textAlign: "center", mb: 1 }} variant="h5">Sign Up for Modado!</Typography>
               <form autoComplete="off" onSubmit={this.handleSubmit}>
-                <FormGroup sx>
+                <FormGroup>
                 <TextField margin="normal" type="text" name="firstName" label="First Name" value={this.state.firstName} onChange={this.handleChange} required />
                 <TextField margin="normal" type="text" name="lastName" label="Last Name" value={this.state.lastName} onChange={this.handleChange} required />
                 <TextField margin="normal" type="text" name="userName" label="User Name" value={this.state.userName} onChange={this.handleChange} required />
