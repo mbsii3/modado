@@ -6,7 +6,7 @@ Modado is a social media dashboard that allows users to create, edit and delete 
 
 ![App Auth Page](./src/images/modado-auth.jpg)
 
-![App index Dash](./src/images/modado-index.jpg)
+![App index Dash](./src/images/modado-index-min.jpg)
 
 ![App Light Theme](./src/images/modado-light.jpg)
 
