@@ -8,11 +8,12 @@ Modado is a social media dashboard that allows users to create, edit and delete 
 
 ![App index Dash](./src/images/modado-index.jpg)
 
+![App Light Theme](./src/images/modado-light.jpg)
+
 ![App User Profile](./src/images/modado-user-profile.jpg)
 
 ![App Post Comment page](./src/images/modado-comments.jpg)
 
-![App Light Theme](./src/images/modado-light.jpg)
 
 I was inspired to develop Modado because social media is a great way for individuals to connect with others who have similar interests. There are many different types of social media platforms, but I wanted to create one that is in a dashboard layout that allows users easy access to information that they are interested in, kind of like a daily news and social media dashboard.  Due to React's powerful utilization of components and state, I wanted to create a UI where many components can render different information depending on user input and it not affect other components due to re-rendering. Several third party APIs are being utilized to to pull information from other sources and it was great to test the capabilities of React's state and component features.
 
